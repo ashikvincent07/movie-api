@@ -1,0 +1,47 @@
+# api call for create movies
+POST http://127.0.0.1:8000/movie/
+Content-Type: application/json
+
+{
+    "title": "Thallumaala",
+    "year": "2023",
+    "language": "malayalam",
+    "genre": "action",
+    "director": "khalid rahman",
+    "run_time": 10
+}
+
+
+# api call for list movies
+###
+GET http://127.0.0.1:8000/movie/
+Accept: application/json
+
+
+
+# api  call for retrieve movie
+###
+GET http://127.0.0.1:8000/movie/2/
+Accept: application/json
+
+
+
+# api call for update movie
+###
+PUT http://127.0.0.1:8000/movie/2/
+Content-Type: application/json
+
+{
+  "title": "Minnal Murali",
+  "year": "2023",
+  "language": "malayalam",
+  "genre": "action",
+  "run_time": 50,
+  "director": "Basil Joseph"
+}
+
+
+
+# api call for delete movie
+###
+DELETE http://127.0.0.1:8000/movie/5/
