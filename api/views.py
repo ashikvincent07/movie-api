@@ -23,7 +23,7 @@ class MovieCreateListView(APIView):
 
         else:
 
-            return Response(data=serializer_instance.errors)
+            return Response(data=serializer_instance.errors,status=serializer_instance.status)
         
     
     def get(self, request, *args, **kwargs):
@@ -48,7 +48,7 @@ class MovieRetrieveUpdateDelete(APIView):
 
         serializer_instance = MovieSerializer(qs)
 
-        return Response(data=serializer_instance.data)
+        return Response(data=serializer_instance.data,status=serializer_instance.status)
     
 
 
@@ -64,12 +64,12 @@ class MovieRetrieveUpdateDelete(APIView):
 
             Movie.objects.filter(id=id).update(**cleaned_data)
 
-            return Response(data=serializer_instance.data)
+            return Response(data=serializer_instance.data,status=serializer_instance.status)
         
 
         else:
 
-            return Response(data=serializer_instance.errors)
+            return Response(data=serializer_instance.errors,status=serializer_instance.status)
         
 
 

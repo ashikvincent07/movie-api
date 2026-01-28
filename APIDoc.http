@@ -3,12 +3,12 @@ POST http://127.0.0.1:8000/movie/
 Content-Type: application/json
 
 {
-    "title": "Thallumaala",
-    "year": "2023",
-    "language": "malayalam",
+    "title": "Dhurandhar 2",
+    "year": "2026",
+    "language": "hindi",
     "genre": "action",
-    "director": "khalid rahman",
-    "run_time": 10
+    "director": "adithya dhar",
+    "run_time": 340
 }
 
 
