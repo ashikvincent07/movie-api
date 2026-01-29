@@ -7,9 +7,13 @@ from api.serializers import MovieSerializer, UserSerializer
 from api.models import Movie
 
 from django.contrib.auth.models import User
+from rest_framework import authentication, permissions
 
 
 class MovieCreateListView(APIView):
+
+    authentication_classes = [authentication.BasicAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
 
@@ -25,7 +29,7 @@ class MovieCreateListView(APIView):
 
         else:
 
-            return Response(data=serializer_instance.errors,status=serializer_instance.status)
+            return Response(data=serializer_instance.errors)
         
     
     def get(self, request, *args, **kwargs):
@@ -41,6 +45,8 @@ class MovieCreateListView(APIView):
 
 class MovieRetrieveUpdateDelete(APIView):
 
+    authentication_classes = [authentication.BasicAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
 
@@ -50,7 +56,7 @@ class MovieRetrieveUpdateDelete(APIView):
 
         serializer_instance = MovieSerializer(qs)
 
-        return Response(data=serializer_instance.data,status=serializer_instance.status)
+        return Response(data=serializer_instance.data)
     
 
 
@@ -66,12 +72,12 @@ class MovieRetrieveUpdateDelete(APIView):
 
             Movie.objects.filter(id=id).update(**cleaned_data)
 
-            return Response(data=serializer_instance.data,status=serializer_instance.status)
+            return Response(data=serializer_instance.data)
         
 
         else:
 
-            return Response(data=serializer_instance.errors,status=serializer_instance.status)
+            return Response(data=serializer_instance.errors)
         
 
 

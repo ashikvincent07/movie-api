@@ -1,14 +1,15 @@
 # api call for create movies
 POST http://127.0.0.1:8000/movie/
 Content-Type: application/json
+Authorization: Basic user:user@123
 
 {
-    "title": "Dhurandhar 2",
-    "year": "2026",
-    "language": "hindi",
+    "title": "JohnWick 4",
+    "year": "2022",
+    "language": "english",
     "genre": "action",
-    "director": "adithya dhar",
-    "run_time": 340
+    "director": "jose",
+    "run_time": 140
 }
 
 
@@ -16,13 +17,15 @@ Content-Type: application/json
 ###
 GET http://127.0.0.1:8000/movie/
 Accept: application/json
+Authorization: Basic user:user@123
 
 
 
 # api  call for retrieve movie
 ###
-GET http://127.0.0.1:8000/movie/2/
+GET http://127.0.0.1:8000/movie/9/
 Accept: application/json
+Authorization: Basic user:user@123
 
 
 
@@ -30,6 +33,7 @@ Accept: application/json
 ###
 PUT http://127.0.0.1:8000/movie/2/
 Content-Type: application/json
+Authorization: Basic user:user@123
 
 {
   "title": "Minnal Murali",
@@ -45,6 +49,7 @@ Content-Type: application/json
 # api call for delete movie
 ###
 DELETE http://127.0.0.1:8000/movie/5/
+Authorization: Basic user:user@123
 
 
 # api call for register user
