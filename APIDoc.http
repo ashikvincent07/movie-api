@@ -45,3 +45,17 @@ Content-Type: application/json
 # api call for delete movie
 ###
 DELETE http://127.0.0.1:8000/movie/5/
+
+
+# api call for register user
+###
+POST http://127.0.0.1:8000/register/
+Content-Type: application/json
+
+{
+  "username":"user",
+  "password":"user@123",
+  "email":"user@gamil.com",
+  "first_name":"user",
+  "last_name":"u"
+}

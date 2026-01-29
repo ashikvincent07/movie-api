@@ -3,8 +3,10 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from api.serializers import MovieSerializer
+from api.serializers import MovieSerializer, UserSerializer
 from api.models import Movie
+
+from django.contrib.auth.models import User
 
 
 class MovieCreateListView(APIView):
@@ -81,4 +83,25 @@ class MovieRetrieveUpdateDelete(APIView):
 
         return Response({"message" : "Deleted"})
 
+
+
+class SignUpView(APIView):
+
+    def post(self, request, *args, **kwargs):
+
+        data = request.data
+
+        serializer_instance = UserSerializer(data=data)
+
+        if serializer_instance.is_valid():
+
+            cleaned_data = serializer_instance.validated_data
+
+            User.objects.create_user(**cleaned_data)
+
+            return Response(data=serializer_instance.data)
+        
+        else:
+
+            return Response(data=serializer_instance.errors)
         

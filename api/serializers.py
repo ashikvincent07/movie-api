@@ -44,3 +44,20 @@ class MovieSerializer(serializers.Serializer):
             raise serializers.ValidationError("movie already exists")
         
         return data
+    
+
+
+
+class UserSerializer(serializers.Serializer):
+
+    id = serializers.IntegerField(read_only=True)
+
+    username = serializers.CharField()
+
+    password = serializers.CharField()
+
+    email = serializers.EmailField()
+
+    first_name = serializers.CharField()
+
+    last_name = serializers.CharField()
